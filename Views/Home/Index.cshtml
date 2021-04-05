@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IndexViewModel
+
+<h3>@Model.Team</h3>
+
+@foreach (var x in Model.Bowlers)
+{
+    
+    //making the bowler and their info drop down
+    <div class="container, text-left">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title p-3">
+                        <a data-toggle="collapse" href="#@x.BowlerId">@x.BowlerFirstName @x.BowlerLastName</a>
+                    </h4>
+                </div>
+                <div id="@x.BowlerId" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>First Name: @x.BowlerFirstName</p>
+                        <p>Middle Initial: @x.BowlerMiddleInit</p>
+                        <p>Last Name: @x.BowlerLastName</p>
+                        <p>Address: @x.BowlerAddress</p>
+                        <p>City: @x.BowlerCity</p>
+                        <p>State: @x.BowlerState</p>
+                        <p>Zip: @x.BowlerZip</p>
+                        <p>Phone Number: @x.BowlerPhoneNumber</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div page-info="@Model.PageNumberingInfo" page-url-team="@Model.Team">
+
+</div>
+
+
+
+
+
+
+
+
+@*@foreach (var x in Model.Bowlers)
+{
+    <p>@x.BowlerFirstName</p>
+}
+
+<div page-info="@Model.PageNumberingInfo" page-url-team="@Model.Team">
+
+</div>*@
